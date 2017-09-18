@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.wenbo.archetype</groupId>
 	<artifactId>spring-boot-quick-start</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 	<name>Spring Boot Quick Start Archetype</name>
-	<description>This archetype helps your to create spring boot based project quickly</description>
+	<description>A famous modern and lightweight architecture based on spring Framework, Boot, Security, Data JPA, HATEOAS, Thymeleaf, WebJars, TDD, RESTful API and so on, which helps you and your team to build web applications or web services quickly and easily.</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -49,43 +49,43 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
+
 		<!-- Templates -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
 		</dependency>
-		
+
 		<!-- RESTFUL API -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
-		
+
 		<!-- ACTUATOR -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		
+
 		<!-- Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
-		
+
 		<!-- Web Jars -->
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>
 			<version>3.2.1</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.webjars.npm</groupId>
 			<artifactId>popper.js</artifactId>
@@ -97,7 +97,7 @@
 			<artifactId>bootstrap</artifactId>
 			<version>4.0.0-beta</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
