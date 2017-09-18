@@ -14,78 +14,77 @@ import com.wenbo.archetype.spring_boot_quick_start.web.entity.BookAuthor;
 import com.wenbo.archetype.spring_boot_quick_start.web.repository.AuthorRepository;
 import com.wenbo.archetype.spring_boot_quick_start.web.repository.BookAuthorRepository;
 import com.wenbo.archetype.spring_boot_quick_start.web.repository.BookRepository;
-import com.wenbo.archetype.spring_boot_quick_start.web.service.BookService;
+import com.wenbo.archetype.spring_boot_quick_start.web.service.AuthorService;
 
 /**
- * Book service implementation
+ * Author service implementation
  * 
  * @author Wenbo Wang (jackie-1685@163.com)
  */
 
 @Service
 @Transactional(readOnly = true)
-public class BookServiceImpl implements BookService {
-
-	private @Autowired BookRepository bookRepository;
+public class AuthorServiceImpl implements AuthorService {
 	private @Autowired AuthorRepository authorRepository;
+	private @Autowired BookRepository bookRepository;
 	private @Autowired BookAuthorRepository bookAuthorRepository;
 
 	@Override
-	public Book getBook(Long bookId) throws NotFoundException {
-		Assert.notNull(bookId, "Book ID must not be null");
-
-		Book book = bookRepository.findOne(bookId);
-		if (null == book) {
-			throw new NotFoundException(MessageCode.BOOK_NOT_FOUND);
-		}
-
-		return book;
-	}
-
-	@Override
-	@Transactional
-	public Book createBook(String bookName) throws DuplicateException {
-		Assert.hasText(bookName, "Book name must not be empty");
-
-		Book book = bookRepository.findByBookName(bookName);
-		if (null != book) {
-			throw new DuplicateException(MessageCode.BOOK_DUPLICATE);
-		}
-
-		book = new Book();
-		book.setBookName(bookName);
-
-		return bookRepository.save(book);
-	}
-
-	@Override
-	@Transactional
-	public void deleteBook(Long bookId) throws NotFoundException {
-		Assert.notNull(bookId, "Book ID must not be null");
-
-		Book book = bookRepository.findOne(bookId);
-		if (null == book) {
-			throw new NotFoundException(MessageCode.BOOK_NOT_FOUND);
-		}
-
-		bookAuthorRepository.deleteByBook(book);
-		bookRepository.delete(book);
-	}
-
-	@Override
-	@Transactional
-	public Book assignAuthor(Long bookId, Long authorId) throws NotFoundException {
-		Assert.notNull(bookId, "Book ID must not be null");
+	public Author getAuthor(Long authorId) throws NotFoundException {
 		Assert.notNull(authorId, "Author ID must not be null");
-
-		Book book = bookRepository.findOne(bookId);
-		if (null == book) {
-			throw new NotFoundException(MessageCode.BOOK_NOT_FOUND);
-		}
 
 		Author author = authorRepository.findOne(authorId);
 		if (null == author) {
 			throw new NotFoundException(MessageCode.AUTHOR_NOT_FOUND);
+		}
+
+		return author;
+	}
+
+	@Override
+	@Transactional
+	public Author createAuthor(String authorName) throws DuplicateException {
+		Assert.hasText(authorName, "Author name must not be empty");
+
+		Author author = authorRepository.findByAuthorName(authorName);
+		if (null != author) {
+			throw new DuplicateException(MessageCode.AUTHOR_DUPLICATE);
+		}
+
+		author = new Author();
+		author.setAuthorName(authorName);
+
+		return authorRepository.save(author);
+	}
+
+	@Override
+	@Transactional
+	public void deleteAuthor(Long authorId) throws NotFoundException {
+		Assert.notNull(authorId, "Author ID must not be null");
+
+		Author author = authorRepository.findOne(authorId);
+		if (null == author) {
+			throw new NotFoundException(MessageCode.AUTHOR_NOT_FOUND);
+		}
+
+		bookAuthorRepository.deleteByAuthor(author);
+		authorRepository.delete(author);
+	}
+
+	@Override
+	@Transactional
+	public Author assignBook(Long authorId, Long bookId) throws NotFoundException {
+		Assert.notNull(authorId, "Author ID must not be null");
+		Assert.notNull(bookId, "Book ID must not be null");
+
+		Author author = authorRepository.findOne(authorId);
+		if (null == author) {
+			throw new NotFoundException(MessageCode.AUTHOR_NOT_FOUND);
+		}
+
+		Book book = bookRepository.findOne(bookId);
+		if (null == book) {
+			throw new NotFoundException(MessageCode.BOOK_NOT_FOUND);
 		}
 
 		BookAuthor bookAuthor = bookAuthorRepository.findByBookAndAuthor(book, author);
@@ -96,7 +95,8 @@ public class BookServiceImpl implements BookService {
 			bookAuthorRepository.save(bookAuthor);
 		}
 
-		return bookAuthor.getBook();
+		return bookAuthor.getAuthor();
 	}
-
+	
+	
 }

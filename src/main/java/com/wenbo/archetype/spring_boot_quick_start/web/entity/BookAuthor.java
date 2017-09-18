@@ -3,7 +3,6 @@ package com.wenbo.archetype.spring_boot_quick_start.web.entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -21,17 +21,20 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 /**
+ * We do not use the union primary key because of the extended demand. Actually,
+ * spring data jpa not provider us a good support of union primary key
  * 
  * @author Wenbo Wang (jackie-1685@163.com)
  */
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class Book implements Serializable {
-	private static final long serialVersionUID = -405064709161586189L;
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "BOOK_ID", "AUTHOR_ID" }))
+public class BookAuthor implements Serializable {
+	private static final long serialVersionUID = 3330193491362488868L;
 
 	private Long id;
-	private String bookName;
-	private Set<BookAuthor> bookAuthors;
+	private Book book;
+	private Author author;
 
 	private User createBy;
 	private Date createDate;
@@ -48,22 +51,22 @@ public class Book implements Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "BOOK_NAME", unique = true, nullable = false, length = 64)
-	public String getBookName() {
-		return bookName;
+	@ManyToOne
+	public Book getBook() {
+		return book;
 	}
 
-	public void setBookName(String bookName) {
-		this.bookName = bookName;
+	public void setBook(Book book) {
+		this.book = book;
 	}
 
-	@OneToMany(mappedBy = "book")
-	public Set<BookAuthor> getBookAuthors() {
-		return bookAuthors;
+	@ManyToOne
+	public Author getAuthor() {
+		return author;
 	}
 
-	public void setBookAuthors(Set<BookAuthor> bookAuthors) {
-		this.bookAuthors = bookAuthors;
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
 	@CreatedBy
@@ -114,7 +117,7 @@ public class Book implements Serializable {
 			return false;
 		}
 
-		Book entity = (Book) o;
+		BookAuthor entity = (BookAuthor) o;
 
 		return Objects.equals(id, entity.id);
 	}

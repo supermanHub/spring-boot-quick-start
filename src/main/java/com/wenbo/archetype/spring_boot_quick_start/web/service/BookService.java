@@ -1,9 +1,7 @@
 package com.wenbo.archetype.spring_boot_quick_start.web.service;
-
 import com.wenbo.archetype.spring_boot_quick_start.support.exception.DuplicateException;
 import com.wenbo.archetype.spring_boot_quick_start.support.exception.NotFoundException;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.Book;
-import com.wenbo.archetype.spring_boot_quick_start.web.service.impl.BookServiceImpl;
 
 /**
  * Book service Implementation refer to {@link BookServiceImpl}
@@ -13,20 +11,42 @@ import com.wenbo.archetype.spring_boot_quick_start.web.service.impl.BookServiceI
 public interface BookService {
 
 	/**
-	 * Get book by book name
+	 * Get a book by its ID
 	 * 
-	 * @param bookName
-	 *            String required
+	 * @param bookId
+	 *            long required
 	 * 
 	 */
-	public Book getBookByName(String bookName) throws NotFoundException;
+	public Book getBook(Long bookId) throws NotFoundException;
 
 	/**
-	 * Create a book
+	 * Create a book by its name
 	 * 
 	 * @param bookName
 	 *            String required
 	 * 
 	 */
 	public Book createBook(String bookName) throws DuplicateException;
+
+	/**
+	 * Delete a book by its ID
+	 * 
+	 * @param bookId
+	 *            long required
+	 * 
+	 */
+	public void deleteBook(Long bookId) throws NotFoundException;
+
+	/**
+	 * Assign book a author
+	 * 
+	 * 
+	 * @param bookId
+	 *            long required
+	 * @param authorId
+	 *            long required
+	 * 
+	 * 
+	 */
+	public Book assignAuthor(Long bookId, Long authorId) throws NotFoundException;
 }

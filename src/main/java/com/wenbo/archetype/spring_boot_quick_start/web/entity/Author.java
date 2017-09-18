@@ -20,18 +20,19 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+
 /**
  * 
  * @author Wenbo Wang (jackie-1685@163.com)
  */
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class Book implements Serializable {
-	private static final long serialVersionUID = -405064709161586189L;
+public class Author implements Serializable {
+	private static final long serialVersionUID = 7926660989998222681L;
 
 	private Long id;
-	private String bookName;
-	private Set<BookAuthor> bookAuthors;
+	private String authorName;
+	private Set<BookAuthor> authorBooks;
 
 	private User createBy;
 	private Date createDate;
@@ -48,22 +49,22 @@ public class Book implements Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "BOOK_NAME", unique = true, nullable = false, length = 64)
-	public String getBookName() {
-		return bookName;
+	@Column(name = "AUTHOR_NAME", unique = true, nullable = false, length = 64)
+	public String getAuthorName() {
+		return authorName;
 	}
 
-	public void setBookName(String bookName) {
-		this.bookName = bookName;
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
 	}
 
-	@OneToMany(mappedBy = "book")
-	public Set<BookAuthor> getBookAuthors() {
-		return bookAuthors;
+	@OneToMany(mappedBy = "author")
+	public Set<BookAuthor> getAuthorBooks() {
+		return authorBooks;
 	}
 
-	public void setBookAuthors(Set<BookAuthor> bookAuthors) {
-		this.bookAuthors = bookAuthors;
+	public void setAuthorBooks(Set<BookAuthor> authorBooks) {
+		this.authorBooks = authorBooks;
 	}
 
 	@CreatedBy
@@ -114,7 +115,7 @@ public class Book implements Serializable {
 			return false;
 		}
 
-		Book entity = (Book) o;
+		Author entity = (Author) o;
 
 		return Objects.equals(id, entity.id);
 	}

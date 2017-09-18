@@ -1,14 +1,18 @@
 package com.wenbo.archetype.spring_boot_quick_start.web.repository;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import java.util.Set;
 
+
+import com.wenbo.archetype.spring_boot_quick_start.support.jpa.CustomJpaRepository;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.Book;
 
 /**
  * 
  * @author Wenbo Wang (jackie-1685@163.com)
  */
-public interface BookRepository extends PagingAndSortingRepository<Book, Long> {
+public interface BookRepository extends CustomJpaRepository<Book, Long> {
 
 	public Book findByBookName(String bookName);
+	
+	public Set<Book> findByBookAuthors_Author_Id(Long authorId);
 }
