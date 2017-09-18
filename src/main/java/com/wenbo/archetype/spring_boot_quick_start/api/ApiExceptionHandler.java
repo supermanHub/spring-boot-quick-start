@@ -9,6 +9,12 @@ import com.wenbo.archetype.spring_boot_quick_start.support.exception.DuplicateEx
 import com.wenbo.archetype.spring_boot_quick_start.support.exception.ErrorMessage;
 import com.wenbo.archetype.spring_boot_quick_start.support.exception.NotFoundException;
 
+/**
+ * <b>API Exception Handler</b><br>
+ * Handler API request exception here
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 @ControllerAdvice
 public class ApiExceptionHandler {
 

@@ -24,8 +24,13 @@ import com.wenbo.archetype.spring_boot_quick_start.web.entity.Author;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.Book;
 import com.wenbo.archetype.spring_boot_quick_start.web.service.AuthorService;
 
+/**
+ * <b>Author API</b><br>
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 @RestController
-@RequestMapping("/api/authors")
+@RequestMapping(path="/api/authors")
 public class AuthorController {
 
 	private @Autowired AuthorService authorService;

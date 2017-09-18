@@ -16,7 +16,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.converter.GrantedAuthorityConverter;
 
-
 /**
  * Security user of application
  * 

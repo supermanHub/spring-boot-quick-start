@@ -4,6 +4,9 @@ import com.wenbo.archetype.spring_boot_quick_start.support.jpa.CustomJpaReposito
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.User;
 
 /**
+ * <b>User Repository</b><br>
+ * You can use NamedQuery or Query annotation here.<br>
+ * 
  * 
  * @author Wenbo Wang (jackie-1685@163.com)
  */

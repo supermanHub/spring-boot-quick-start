@@ -38,13 +38,13 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/", "/signin").permitAll()
 			.and().authorizeRequests().anyRequest().authenticated()
+			.and().formLogin().loginPage("/signin")
 			.and().authorizeRequests().antMatchers(HttpMethod.GET, "/api/**").hasRole("USER")
 			.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/**").hasRole("ADMIN")
 			.and().authorizeRequests().antMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
 			.and().authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
-			.and().cors()
-			.and().formLogin().loginPage("/signin")
-			.and().logout();
+			.and().cors().and().csrf().ignoringAntMatchers("/api/**")
+			.and().httpBasic();
 	}
 
 	@Bean

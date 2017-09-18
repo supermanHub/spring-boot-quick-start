@@ -1,14 +1,17 @@
 package com.wenbo.archetype.spring_boot_quick_start.support.exception;
 
+/**
+ * <b>API Error Message</b><br>
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 public class ErrorMessage {
 	private Integer code;
 	private String status;
 	private String message;
 
-	
-	
 	public ErrorMessage() {
-		
+
 	}
 
 	public ErrorMessage(Integer code, String status, String message) {

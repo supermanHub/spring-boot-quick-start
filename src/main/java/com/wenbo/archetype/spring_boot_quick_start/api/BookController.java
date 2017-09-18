@@ -24,6 +24,11 @@ import com.wenbo.archetype.spring_boot_quick_start.web.entity.Author;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.Book;
 import com.wenbo.archetype.spring_boot_quick_start.web.service.BookService;
 
+/**
+ * <b>Book API</b><br>
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 @RestController
 @RequestMapping("/api/books")
 public class BookController {

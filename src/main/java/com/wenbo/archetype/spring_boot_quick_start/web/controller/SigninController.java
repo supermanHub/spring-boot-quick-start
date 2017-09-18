@@ -5,6 +5,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * <b>Signin Page Entry</b><br>
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 @RestController
 @RequestMapping("/signin")
 public class SigninController {

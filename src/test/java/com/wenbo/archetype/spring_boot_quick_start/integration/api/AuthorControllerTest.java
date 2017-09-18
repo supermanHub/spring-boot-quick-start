@@ -2,30 +2,31 @@ package com.wenbo.archetype.spring_boot_quick_start.integration.api;
 
 import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
 import com.wenbo.archetype.spring_boot_quick_start.api.resource.AuthorResource;
+import com.wenbo.archetype.spring_boot_quick_start.integration.base.IntegrationTestBase;
 import com.wenbo.archetype.spring_boot_quick_start.integration.base.TestScopeAuthentication;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.Author;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.Book;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.assertj.core.api.Assertions;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+/**
+ * Integration Test of Author API
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class AuthorControllerTest {
+public class AuthorControllerTest extends IntegrationTestBase {
 
 	@Autowired
 	private TestRestTemplate restTemplate;

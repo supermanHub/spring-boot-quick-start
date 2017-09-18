@@ -22,7 +22,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 /**
  * We do not use the union primary key because of the extended demand. Actually,
- * spring data jpa not provider us a good support of union primary key
+ * spring data jpa not provider us a good support for union primary key
  * 
  * @author Wenbo Wang (jackie-1685@163.com)
  */

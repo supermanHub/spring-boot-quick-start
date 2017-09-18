@@ -19,6 +19,12 @@ import com.wenbo.archetype.spring_boot_quick_start.web.repository.BookRepository
 import com.wenbo.archetype.spring_boot_quick_start.web.service.AuthorService;
 import com.wenbo.archetype.spring_boot_quick_start.web.service.impl.AuthorServiceImpl;
 
+/**
+ * <b>Author Service Unit Test</b><br>
+ * I suggest to use Mockito
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 @RunWith(SpringRunner.class)
 public class AuthorServiceImplTest {
 

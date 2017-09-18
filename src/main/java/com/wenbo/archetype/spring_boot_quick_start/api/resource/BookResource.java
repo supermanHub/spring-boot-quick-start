@@ -4,6 +4,12 @@ import java.util.Date;
 
 import org.springframework.hateoas.ResourceSupport;
 
+/**
+ * <b>Book Resource</b><br>
+ * Here we can set which part is available to user
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 public class BookResource extends ResourceSupport {
 	private String bookName;
 	private String createBy;

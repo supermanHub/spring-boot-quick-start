@@ -10,6 +10,11 @@ import com.wenbo.archetype.spring_boot_quick_start.api.resource.AuthorResource;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.Author;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.BookAuthor;
 
+/**
+ * <b>Author Resource Assembler</b><br>
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 public class AuthorResourceAssembler extends ResourceAssemblerSupport<Author, AuthorResource> {
 
 	public AuthorResourceAssembler() {

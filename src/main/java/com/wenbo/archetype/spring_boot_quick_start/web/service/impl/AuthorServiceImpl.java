@@ -97,6 +97,5 @@ public class AuthorServiceImpl implements AuthorService {
 
 		return bookAuthor.getAuthor();
 	}
-	
-	
+
 }

@@ -7,6 +7,7 @@ logging:
     org:
       springframework:
         web: DEBUG
+        security: DEBUG
 spring:
   jpa:
     show-sql: true
@@ -15,6 +16,3 @@ spring:
 management:
   security:
     roles: ADMIN
-endpoints: 
-  actuator:
-    enabled: true

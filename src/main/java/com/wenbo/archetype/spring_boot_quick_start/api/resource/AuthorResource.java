@@ -3,6 +3,12 @@ package com.wenbo.archetype.spring_boot_quick_start.api.resource;
 import java.util.Date;
 import org.springframework.hateoas.ResourceSupport;
 
+/**
+ * <b>Author Resource</b><br>
+ * Here we can set which part is available to user
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 public class AuthorResource extends ResourceSupport {
 	private String authorName;
 	private String createBy;

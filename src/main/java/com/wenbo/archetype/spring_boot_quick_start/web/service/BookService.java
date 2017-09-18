@@ -1,4 +1,5 @@
 package com.wenbo.archetype.spring_boot_quick_start.web.service;
+
 import com.wenbo.archetype.spring_boot_quick_start.support.exception.DuplicateException;
 import com.wenbo.archetype.spring_boot_quick_start.support.exception.NotFoundException;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.Book;

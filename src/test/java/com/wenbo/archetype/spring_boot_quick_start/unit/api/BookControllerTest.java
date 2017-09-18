@@ -19,6 +19,12 @@ import com.wenbo.archetype.spring_boot_quick_start.web.entity.Book;
 import com.wenbo.archetype.spring_boot_quick_start.web.entity.User;
 import com.wenbo.archetype.spring_boot_quick_start.web.service.BookService;
 
+/**
+ * <b>Book Controller Unit Test</b><br>
+ * I suggest to use Mockito
+ * 
+ * @author Wenbo Wang (jackie-1685@163.com)
+ */
 @RunWith(SpringRunner.class)
 public class BookControllerTest {
 
